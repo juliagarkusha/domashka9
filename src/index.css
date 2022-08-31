@@ -1,0 +1,154 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+main {
+    height: calc(100% - 60px);
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.slider {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'arrows' 'slides';
+    grid-template-rows: 120px auto;
+    overflow: hidden;
+}
+
+.slider__container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 120px;
+    position: relative;
+}
+
+.slider__container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90px;
+    background: url("./images/slides-bg.svg") no-repeat;
+    background-size: contain;
+    display: flex;
+    width: 700px;
+    height: 700px;
+    z-index: 10;
+}
+
+@media screen and (max-width: 1200px){
+    .slider__container::before {
+        display: none;
+    }
+}
+
+.slider__slides {
+    grid-area: slides;
+}
+
+.slider__arrows {
+    grid-area: arrows;
+    position: relative;
+    z-index: 100;
+}
+
+.slider__item {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.slider__text {
+    position: absolute;
+    left: 0;
+    max-width: 500px;
+    width: 90%;
+    font-size: 50px;
+}
+
+@media screen and (max-width: 1280px){
+    .slider__text {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .slider__text {
+        font-size: 50px;
+        max-width: 70%;
+    }
+}
+
+.slider__text h2 {
+    font-size: 80px;
+}
+
+.slider__img {
+    width: 85%;
+    height: 400px;
+    object-fit: cover;
+    object-position: left;
+}
+
+.slider__arrows {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.slider__arrow {
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: 1px solid var(--white);
+    position: relative;
+}
+
+.slider__arrow::before {
+    content: "";
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.slider__loader {
+    left: 0;
+    top: 0;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider__loader img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
